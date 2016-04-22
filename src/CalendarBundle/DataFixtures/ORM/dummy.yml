@@ -1,0 +1,8 @@
+CalendarBundle\Entity\Exercise :
+    exercise_{1..400}:
+        description: <randomElement(['Chest Press', 'Pullover', 'Biceps Curl'])>
+        weight: <numberBetween(20, 200)>
+        count: <numberBetween(5, 15)>
+        date: <dateTimeThisMonth()>
+        time: <dateTimeThisMonth()>
+        #related_dummy: @related_dummy*
