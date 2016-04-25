@@ -7,9 +7,9 @@ services:
 #    service_name:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]#
-    calendar.exercise_repository:
-        class: CalendarBundle\Repository\ExerciseRepository
+   # calendar.exercise_repository:
+   #     class: CalendarBundle\Repository\ExerciseRepository
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
     calendar.report:
         class: CalendarBundle\Services\Report
-        arguments: ["@calendar.exercise_repository"]
+        arguments: ["@doctrine.orm.entity_manager"]

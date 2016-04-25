@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+                <table border="1">
+                    <tr>
+                        <td><b>Two weeks ago</b></td>
+                        <td><b>Week ago</b></td>
+                        <td><b>Today</b></td>
+                    </tr>
+                    {% for i in 0..max(
+                                    report_data.two_weeks_ago|length,
+                                    report_data.one_week_ago|length,
+                                    report_data.today|length
+                                    )-1
+                    %}
+                    <tr>
+                        <td>{{ report_data.two_weeks_ago[i] | default("") }}</td>
+                        <td>{{ report_data.one_week_ago[i] | default("") }}</td>
+                        <td>{{ report_data.today[i] | default("") }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+{% endblock %}
