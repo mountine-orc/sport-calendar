@@ -2,7 +2,7 @@ Workshop 2
 =========
 
 #todo:
-- implement authorization
+# - implement authorization
 - implement multilanguage
 - write Unittests
 

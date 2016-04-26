@@ -5,4 +5,4 @@ CalendarBundle\Entity\Exercise :
         count: <numberBetween(5, 15)>
         date: <dateTimeThisMonth()>
         time: <dateTimeThisMonth()>
-        #related_dummy: @related_dummy*
+        user: "@user*"

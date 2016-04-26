@@ -1,3 +1,10 @@
-app:
+calendar:
     resource: "@CalendarBundle/Controller/"
     type:     annotation
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
+
+logout:
+    path: /logout

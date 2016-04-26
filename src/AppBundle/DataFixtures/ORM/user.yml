@@ -1,0 +1,5 @@
+AppBundle\Entity\User :
+    user_{1..3}:
+        username: <userName()>
+        password: <randomElement(['pass1', 'pass2', 'pass3'])>
+        #related_dummy: @related_dummy*

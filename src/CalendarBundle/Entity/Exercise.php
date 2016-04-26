@@ -3,6 +3,7 @@
 namespace CalendarBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\User;
 
 /**
  * Exercise
@@ -56,6 +57,11 @@ class Exercise
      */
     private $time;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="exercise")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
 
     /**
      * Get id
@@ -186,5 +192,28 @@ class Exercise
     {
         return $this->time;
     }
-}
 
+    /**
+     * Set user
+     *
+     * @param User $user
+     *
+     * @return Exercise
+     */
+    public function setUser(User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+}

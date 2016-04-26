@@ -13,7 +13,7 @@ class ExerciseController extends Controller
     public function indexAction()
     {
         $reportService = $this->get('calendar.report');
-        $reportData = $reportService->getLastTrainingsReport();
+        $reportData = $reportService->getReportByUserId($user = $this->getUser()->getId());
 
         return $this->render('calendar/index.html.twig', [
             'report_data' => $reportData

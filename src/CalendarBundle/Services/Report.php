@@ -16,7 +16,7 @@ class Report
         $this->repository = $em->getRepository("CalendarBundle:Exercise");
     }
 
-    function getLastTrainingsReport()
+    function getReportByUserId($id)
     {
         $report = [
             "today" => [],
@@ -28,9 +28,11 @@ class Report
             ->where('p.date = :today')
             ->orWhere('p.date = :one_week_ago')
             ->orWhere('p.date = :two_weeks_ago')
+            ->andWhere('p.user = :user')
             ->setParameter('today', new \DateTime('today'), \Doctrine\DBAL\Types\Type::DATE)
             ->setParameter('one_week_ago', new \DateTime('-1 week'), \Doctrine\DBAL\Types\Type::DATE)
             ->setParameter('two_weeks_ago', new \DateTime('-2 week'), \Doctrine\DBAL\Types\Type::DATE)
+            ->setParameter('user', $id)
             ->getQuery();
         $result =  $query->getResult();
 
